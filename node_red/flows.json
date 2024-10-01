@@ -1,0 +1,482 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "SIHS Exercise",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dc30089b875d72e7",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/1/lum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9e7659d1fea3553f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "601a27984803731b"
+            ]
+        ]
+    },
+    {
+        "id": "0157414c23661328",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "Sensor: Temperatura (AR2)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "81fed438ba6d86cb",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/2/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9e7659d1fea3553f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "0157414c23661328"
+            ]
+        ]
+    },
+    {
+        "id": "6f00b9608a395702",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/3/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9e7659d1fea3553f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "c24a48612136e416"
+            ]
+        ]
+    },
+    {
+        "id": "cd9daa195abf0b72",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/2/ac",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7659d1fea3553f",
+        "x": 480,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "3f24ddc32f647114",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Ligar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/gabriel/comandos",
+        "payload": "ligar",
+        "payloadType": "str",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "cd9daa195abf0b72"
+            ]
+        ]
+    },
+    {
+        "id": "ef7c97edafc92bfe",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Desligar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/gabriel/comandos",
+        "payload": "desligar",
+        "payloadType": "str",
+        "x": 140,
+        "y": 660,
+        "wires": [
+            [
+                "cd9daa195abf0b72"
+            ]
+        ]
+    },
+    {
+        "id": "c24a48612136e416",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "Sensor: Temperatura (AR3)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "601a27984803731b",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "Sensor: Luminosidade",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1ffe14a98b35f18b",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/3/ac",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7659d1fea3553f",
+        "x": 480,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "7503d6350443b7bf",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Ligar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/gabriel/comandos",
+        "payload": "ligar",
+        "payloadType": "str",
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "1ffe14a98b35f18b"
+            ]
+        ]
+    },
+    {
+        "id": "690578e15b6505e7",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Desligar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/gabriel/comandos",
+        "payload": "desligar",
+        "payloadType": "str",
+        "x": 140,
+        "y": 820,
+        "wires": [
+            [
+                "1ffe14a98b35f18b"
+            ]
+        ]
+    },
+    {
+        "id": "cd8681cfb1515088",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Acompanhando o valor dos sensores",
+        "info": "",
+        "x": 210,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "927261f36c8bd462",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Painel de controle",
+        "info": "",
+        "x": 150,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7b5cb5d13758caf2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "manual",
+        "info": "",
+        "x": 110,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "990f5ad8cd277a72",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "automático",
+        "info": "",
+        "x": 700,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "809d27c1b253966b",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/1/lum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9e7659d1fea3553f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 760,
+        "y": 580,
+        "wires": [
+            [
+                "71f6c98929608210"
+            ]
+        ]
+    },
+    {
+        "id": "71f6c98929608210",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "500",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "500",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "5a176988a85c65d2"
+            ],
+            [
+                "d7e8c405c2519c2d"
+            ]
+        ]
+    },
+    {
+        "id": "fcf3d1bb59d21176",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "/sihs/equipe-gab-nando/1/luz",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9e7659d1fea3553f",
+        "x": 1360,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5a176988a85c65d2",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "Ligar",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ligar",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            [
+                "fcf3d1bb59d21176"
+            ]
+        ]
+    },
+    {
+        "id": "d7e8c405c2519c2d",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "Desligar",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "desligar",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 620,
+        "wires": [
+            [
+                "fcf3d1bb59d21176"
+            ]
+        ]
+    },
+    {
+        "id": "7e4198d1b50ab925",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Se menor que 500 ligar luz, caso contrário, desligar luz ",
+        "info": "",
+        "x": 1140,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "9e7659d1fea3553f",
+        "type": "mqtt-broker",
+        "name": "SIHS Exercise",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
